@@ -22,6 +22,9 @@ const expiryError = document.querySelector(".exp__error");
 // Display card details on the  Dummy Card
 
 cardName.addEventListener("input", function () {
+  if (cardName.value.length > 25) {
+    cardName.value = cardName.value.slice(0, 25);
+  }
   cardNameText.textContent = cardName.value;
 
   if (!cardName.value) {
@@ -53,6 +56,10 @@ cardCvc.addEventListener("input", function () {
 });
 
 expiryMonth.addEventListener("input", function () {
+  if (expiryMonth.value.length > 2) {
+    expiryMonth.value = expiryMonth.value.slice(0, 2);
+  }
+
   cardExpiryMonthText.textContent = expiryMonth.value;
 
   if (!expiryMonth.value) {
@@ -61,6 +68,9 @@ expiryMonth.addEventListener("input", function () {
 });
 
 expiryYear.addEventListener("input", function () {
+  if (expiryYear.value.length > 2) {
+    expiryYear.value = expiryYear.value.slice(0, 2);
+  }
   cardExpiryYearText.textContent = expiryYear.value;
 
   if (!expiryYear.value) {
@@ -122,9 +132,14 @@ function validateForm(card) {
   if (card.expiryMonth === "") {
     expiryError.textContent = "Can't be blank";
     expiryMonth.style.borderColor = "var(--primary-red)";
-  } else if (card.expiryMonth < 1 || card.expiryMonth > 12) {
+  } else if (
+    !/^([0-9 ])*$/.test(card.expiryMonth) ||
+    card.expiryMonth < 1 ||
+    card.expiryMonth > 12
+  ) {
     expiryError.textContent = "Invalid date";
     expiryMonth.style.borderColor = "var(--primary-red)";
+    return;
   } else {
     expiryError.textContent = "";
     expiryMonth.style.borderColor = "var(--light-grayish-violet)";
@@ -133,16 +148,31 @@ function validateForm(card) {
   if (card.expiryYear === "") {
     expiryError.textContent = "Can't be blank";
     expiryYear.style.borderColor = "var(--primary-red)";
-  } else if (card.expiryYear < currentYear) {
+  } else if (
+    card.expiryYear < currentYear ||
+    !/^([0-9 ])*$/.test(card.expiryYear)
+  ) {
     expiryError.textContent = "Invalid date";
     expiryYear.style.borderColor = "var(--primary-red)";
   } else {
     expiryError.textContent = "";
     expiryYear.style.borderColor = "var(--light-grayish-violet)";
+  }
 
-    // Show completed state
-    completedState.style.display = "block";
+  // Show completed state
+  if (
+    card.name !== "" &&
+    card.number !== "" &&
+    card.cvc !== "" &&
+    card.expiryMonth !== "" &&
+    card.expiryYear !== "" &&
+    card.number.length === 16 &&
+    card.expiryMonth >= 1 &&
+    card.expiryMonth <= 12 &&
+    card.expiryYear >= currentYear
+  ) {
     form.style.display = "none";
+    completedState.style.display = "block";
   }
 }
 
