@@ -49,6 +49,7 @@
                 type="text"
                 id="card__name"
                 name="card__name"
+                maxlength="20"
                 placeholder="e.g. Jane Appleseed"
               />
               <span class="name__error"></span>
@@ -59,6 +60,7 @@
                 type="text"
                 id="card__number"
                 name="card__number"
+                maxlength="16"
                 placeholder="e.g. 1234 5678 9123 0000"
               />
               <span class="num__error"></span>
@@ -72,12 +74,14 @@
                     id="card__exp"
                     name="card__month"
                     placeholder="MM"
+                    maxlength="2"
                   />
                   <input
                     type="text"
                     id="card__year"
                     name="card__year"
                     placeholder="YY"
+                    maxlength="2"
                   />
                 </div>
                 <span class="exp__error"></span>
@@ -89,6 +93,7 @@
                   id="card__cvc"
                   name="card__cvc"
                   placeholder="e.g. 123"
+                  maxlength="3"
                 />
                 <span class="cvc__error"></span>
               </div>
