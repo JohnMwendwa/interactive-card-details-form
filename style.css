@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+:root {
+  /* Primary */
+  --primary-gradient: linear-gradient(
+    135deg,
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+  --primary-red: hsl(0, 100%, 66%);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --light-grayish-violet: hsl(270, 3%, 87%);
+  --dark-grayish-violet: hsl(279, 6%, 55%);
+  --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+body {
+  color: var(--very-dark-violet);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+  background-image: url("images/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: 100% 245px;
+  min-height: 100vh;
+  max-width: 1440px;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    background-image: url("images/bg-main-desktop.png");
+    background-size: 100% 350px;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .container {
+    padding-right: 2rem;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    background-image: url("images/bg-main-desktop.png");
+    background-size: 33.5% 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    gap: 6rem;
+  }
+}
+
+aside {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+aside .front__card {
+  position: relative;
+  top: -4.3rem;
+  width: 290px;
+  height: 160px;
+  background-image: url("images/bg-card-front.png");
+  background-size: cover;
+  padding: 1rem;
+  z-index: 20;
+  flex-shrink: 0;
+  border-radius: 10px;
+  box-shadow: 0.5rem 2rem 8rem -1rem rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  order: 2;
+}
+
+@media screen and (min-width: 640px) {
+  aside {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  aside .front__card {
+    width: 448px;
+    height: 245px;
+    padding: 2rem;
+    top: -6.6rem;
+    left: -2rem;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  aside {
+    gap: 2rem;
+  }
+
+  aside .front__card {
+    margin-left: 5rem;
+    top: unset;
+    left: unset;
+    order: 1;
+  }
+}
+
+aside .card__details {
+  margin-top: 0.5rem;
+}
+
+aside .card__number {
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+aside .card__holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+  font-size: 0.9375rem;
+  margin-top: 0.5rem;
+}
+
+aside .card__name {
+  font-weight: 300;
+  font-size: 0.9375rem;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+aside .back__card {
+  position: relative;
+  order: 1;
+  width: 290px;
+  height: 160px;
+  background-image: url("images/bg-card-back.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: flex-end;
+  flex-shrink: 0;
+  padding: 2.5rem;
+  font-size: 1rem;
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 0.5rem 2rem 8rem -1rem rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 640px) {
+  aside .card__details {
+    margin-top: 4rem;
+  }
+
+  aside .card__number {
+    font-size: 1.75rem;
+  }
+
+  aside .card__holder {
+    font-size: 1.25rem;
+  }
+
+  aside .card__name {
+    font-size: 1.25rem;
+  }
+
+  aside .back__card {
+    width: 448px;
+    height: 245px;
+    padding: 4rem;
+    align-self: center;
+    right: -4rem;
+    top: unset;
+    order: 1;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  aside .back__card {
+    margin-left: 10rem;
+    right: unset;
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  aside .back__card {
+    right: -4rem;
+  }
+}
+
+.form__container {
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .form__container {
+    max-width: 25rem;
+    width: 100%;
+    max-width: 448px;
+    margin: 0 auto;
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form .form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+form .wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.exp__date {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#card__exp,
+#card__year {
+  max-width: 80px;
+  width: 100%;
+}
+
+label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+input {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.015rem;
+  border: 1px solid var(--light-grayish-violet);
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+input::placeholder {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.016rem;
+  color: var(--dark-grayish-violet);
+  opacity: 0.4;
+}
+
+input:focus-visible {
+  outline: 1px solid var(--dark-grayish-violet);
+}
+
+button {
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  background: var(--very-dark-violet);
+  color: var(--white);
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--dark-grayish-violet);
+}
+
+/* Errrors */
+.name__error,
+.num__error,
+.exp__error,
+.cvc__error {
+  color: var(--primary-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* completed state */
+.completed__state {
+  display: none;
+  text-align: center;
+}
+.completed__state img {
+  margin-bottom: 1rem;
+}
+
+.completed__state h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+}
+
+.completed__state p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--dark-grayish-violet);
+}
