@@ -22,8 +22,8 @@ const expiryError = document.querySelector(".exp__error");
 // Display card details on the  Dummy Card
 
 cardName.addEventListener("input", function () {
-  if (cardName.value.length > 25) {
-    cardName.value = cardName.value.slice(0, 25);
+  if (cardName.value.length > 20) {
+    cardName.value = cardName.value.slice(0, 20);
   }
   cardNameText.textContent = cardName.value;
 
@@ -36,7 +36,7 @@ cardNumber.addEventListener("input", function () {
   if (cardNumber.value.length > 16) {
     cardNumber.value = cardNumber.value.slice(0, 16);
   }
-  cardNumberText.textContent = cardNumber.value;
+  cardNumberText.textContent = numberFormat(cardNumber.value);
 
   if (!cardNumber.value) {
     cardNumberText.textContent = "0000 0000 0000 0000";
@@ -182,3 +182,8 @@ continueBtn.addEventListener("click", function () {
   form.style.display = "block";
   window.location.reload();
 });
+
+// Format card number
+function numberFormat(x) {
+  return x.replace(/(.{4})/g, "$1 ");
+}
