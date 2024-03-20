@@ -63,34 +63,37 @@
               />
               <span class="num__error"></span>
             </div>
-            <div class="form__group">
-              <label for="card__exp">Exp. Date (MM/YY)</label>
-              <div class="exp__date">
-                <input
-                  type="text"
-                  id="card__month"
-                  name="card__month"
-                  placeholder="MM"
-                />
-                <input
-                  type="text"
-                  id="card__year"
-                  name="card__year"
-                  placeholder="YY"
-                />
+            <div class="wrapper">
+              <div class="form__group">
+                <label for="card__exp">Exp. Date (MM/YY)</label>
+                <div class="exp__date">
+                  <input
+                    type="text"
+                    id="card__month"
+                    name="card__month"
+                    placeholder="MM"
+                  />
+                  <input
+                    type="text"
+                    id="card__year"
+                    name="card__year"
+                    placeholder="YY"
+                  />
+                </div>
+                <span class="exp__error">Cen't be blank</span>
               </div>
-              <span class="exp__error"></span>
+              <div class="form__group">
+                <label for="card__cvc">CVC</label>
+                <input
+                  type="text"
+                  id="card__cvc"
+                  name="card__cvc"
+                  placeholder="e.g. 123"
+                />
+                <span class="cvc__error"></span>
+              </div>
             </div>
-            <div class="form__group">
-              <label for="card__cvc">CVC</label>
-              <input
-                type="text"
-                id="card__cvc"
-                name="card__cvc"
-                placeholder="e.g. 123"
-              />
-              <span class="cvc__error"></span>
-            </div>
+
             <button type="submit">Confirm</button>
           </form>
 
